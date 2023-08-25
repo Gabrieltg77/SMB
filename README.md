@@ -1,4 +1,4 @@
-#Para executar:
+# Para executar:
 
 cd .\back\
 npm i
