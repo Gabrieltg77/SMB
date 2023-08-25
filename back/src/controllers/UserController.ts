@@ -20,7 +20,7 @@ class UserController {
         );
     }
     else {
-      return res.json({ error: "Cliente não localizado" });
+      return res.json({ error: "Usuário não localizado" });
     }
   }
 
@@ -45,7 +45,7 @@ class UserController {
         );
     }
     else {
-      return res.json({ error: "Cliente não localizado" });
+      return res.json({ error: "Usuário não localizado" });
     }
   }
   public async date(req: Request, res: Response): Promise<Response> {
@@ -68,7 +68,7 @@ class UserController {
         );
     }
     else {
-      return res.json({ error: "Cliente não localizado" });
+      return res.json({ error: "Usuário não localizado" });
     }
   }
 
@@ -79,8 +79,6 @@ class UserController {
       phoneNumber,
       email,
     } = req.body;
-
-    //verifica se foram fornecidos os parâmetros
       const obj = new User();
       obj.name = name;
       obj.phoneNumber = phoneNumber;
@@ -88,7 +86,6 @@ class UserController {
       obj.email = email;
     
     const user: any = await AppDataSource.manager.save(User, obj).catch((e) => {
-      // testa se o e-mail é repetido
       return { error: e.message };
     })
     if (user.id) {
@@ -99,7 +96,6 @@ class UserController {
     return res.json(user);
   }
 
-  // o usuário pode atualizar somente os seus dados
   public async update(req: Request, res: Response): Promise<Response> {
     const {
       id,
