@@ -1,6 +1,6 @@
 import AppDataSource from "../config/data-source";
 import { Request, Response } from 'express';
-import { User } from "../Model/User";
+import { User } from "../model/User";
 
 class UserController {
   public async id(req: Request, res: Response): Promise<Response> {
